@@ -30,7 +30,7 @@ Evaluation scaffolding for Small Language Models (SLMs). This repository provide
 - Create and activate a virtual environment, then install in editable mode:
 
 ```
-pip install -e .[dev]
+pip install -e .'[dev]'
 pre-commit install
 ```
 
