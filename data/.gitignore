@@ -1,0 +1,11 @@
+# Ignore everything by default
+*
+
+# But keep these files so the directory structure is preserved
+!.gitignore
+!README.md
+!raw/.gitkeep
+!interim/.gitkeep
+!processed/.gitkeep
+!external/.gitkeep
+

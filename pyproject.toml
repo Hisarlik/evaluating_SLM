@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "evaluating-slm"
+version = "0.1.0"
+description = "Scaffold for evaluating Small Language Models (SLMs)"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Antonio Menta" }]
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=3.7",
+    "ruff>=0.6",
+    "black>=24.0",
+    "pytest>=7.0",
+    "ipykernel>=6.0",
+]
+
+[project.scripts]
+slm-eval = "evaluating_slm.cli:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+extend-exclude = [
+    "data",
+]
+lint.select = ["E", "F", "B", "I"]
+lint.ignore = []
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["evaluating_slm*"]
+exclude = []
+
