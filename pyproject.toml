@@ -13,12 +13,56 @@ license = { text = "MIT" }
 dependencies = []
 
 [project.optional-dependencies]
+# Core evaluation stack for comparing SLMs
+eval = [
+    "transformers>=4.43",
+    "datasets>=2.20",
+    "evaluate>=0.4",
+    "accelerate>=0.30",
+    "scikit-learn>=1.2",
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "tqdm>=4.64",
+    "sentencepiece>=0.1.99",
+    "sacrebleu>=2.4",
+    "rouge-score>=0.1.2",
+    # EleutherAI LM Evaluation Harness (optional but useful)
+    "lm-eval>=0.4.2",
+]
+
+# Optional: API clients for hosted models
+apis = [
+    "openai>=1.40",
+]
+
+# Optional: PyTorch for local inference; install variant per platform as needed
+torch = [
+    "torch>=2.3",
+]
+
+# Optional: ONNX runtime for lightweight inference backends
+
+
+# Dev tools (includes eval stack for convenience)
 dev = [
     "pre-commit>=3.7",
     "ruff>=0.6",
     "black>=24.0",
     "pytest>=7.0",
     "ipykernel>=6.0",
+    # evaluation stack
+    "transformers>=4.43",
+    "datasets>=2.20",
+    "evaluate>=0.4",
+    "accelerate>=0.30",
+    "scikit-learn>=1.2",
+    "numpy>=1.23",
+    "pandas>=1.5",
+    "tqdm>=4.64",
+    "sentencepiece>=0.1.99",
+    "sacrebleu>=2.4",
+    "rouge-score>=0.1.2",
+    "lm-eval>=0.4.2",
 ]
 
 [project.scripts]
@@ -51,4 +95,3 @@ package-dir = {"" = "src"}
 where = ["src"]
 include = ["evaluating_slm*"]
 exclude = []
-

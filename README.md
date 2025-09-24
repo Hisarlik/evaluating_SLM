@@ -30,7 +30,7 @@ Evaluation scaffolding for Small Language Models (SLMs). This repository provide
 - Create and activate a virtual environment, then install in editable mode:
 
 ```
-pip install -e .'[dev]'
+uv pip install -e '.[dev]'
 pre-commit install
 ```
 
@@ -46,6 +46,17 @@ make lint
 ```
 python examples/minimal_usage.py
 ```
+
+### Install evaluation dependencies
+
+- Core evaluation stack (Transformers, Datasets, Evaluate, metrics, LM harness):
+  - `uv pip install -e '.[eval]'`
+- Local inference with PyTorch (optional; choose the right wheel for your platform):
+  - `uv pip install -e '.[torch]'`
+- Hosted API clients (optional):
+  - `uv pip install -e '.[apis]'`
+Example (dev + torch in one go):
+`uv pip install -e '.[dev,torch]'`
 
 ## Notes
 
